@@ -1,146 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vivek Cyber Defense LLC</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vivek Cyber Defense LLC · Cybersecurity Consulting & Security Testing</title>
+  <meta name="description" content="Vivek Cyber Defense LLC provides expert cybersecurity consulting, penetration testing, vulnerability assessment, and incident response services." />
+  <meta property="og:title" content="Vivek Cyber Defense LLC" />
+  <meta property="og:description" content="Cybersecurity consulting · Penetration testing · Vulnerability research" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0b0b0c" />
+  <!-- Simple SVG favicon (viper) -->
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="%230b0b0c"/><path d="M46 22c0-7-6-12-14-12S18 15 18 22c0 9 7 11 7 16 0 3-2 5-5 7 3 1 6 1 9-1 3 2 6 2 9 1-3-2-5-4-5-7 0-5 7-7 7-16Z" fill="%2300ffae"/><circle cx="26" cy="22" r="2" fill="%230b0b0c"/><circle cx="38" cy="22" r="2" fill="%230b0b0c"/></svg>' />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #0d0d0d;
-      color: #e0e0e0;
+    :root{
+      --bg:#0d0d0d; --panel:#111; --card:#171717; --muted:#a3a3a3; --text:#eaeaea; --accent:#00ffae; --accent-2:#33ffd0; --ring: 0 0 0 2px rgba(0,255,174,.25);
     }
-    header {
-      background-color: #111;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 60px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.8);
-    }
-    header h1 {
-      font-size: 1.8rem;
-      color: #00ffae;
-      letter-spacing: 1px;
-    }
-    nav a {
-      color: #e0e0e0;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: 500;
-    }
-    nav a:hover {
-      color: #00ffae;
-    }
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1556742048-427fed86f2f1');
-      background-size: cover;
-      background-position: center;
-      height: 85vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #fff;
-    }
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin-bottom: 30px;
-    }
-    .hero a {
-      background-color: #00ffae;
-      color: #000;
-      padding: 12px 28px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      padding: 60px;
-      background-color: #111;
-    }
-    .service {
-      background-color: #1a1a1a;
-      border-radius: 10px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    }
-    .service h3 {
-      color: #00ffae;
-      margin-bottom: 10px;
-    }
-    .contact {
-      padding: 60px;
-      text-align: center;
-      background-color: #0d0d0d;
-    }
-    .contact a {
-      color: #00ffae;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #111;
-      color: #888;
-      font-size: 0.9rem;
-    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+    header{position:sticky;top:0;z-index:50;background:rgba(13,13,13,.8);backdrop-filter:blur(10px);border-bottom:1px solid #1f1f1f}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:34px;height:34px;border-radius:9px;background:#0b0b0c;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.6)}
+    .logo svg{width:22px;height:22px}
+    .nav a{margin-left:20px;color:#cfcfcf}
+    .nav a:hover{color:#fff}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#000;padding:12px 18px;border-radius:10px;font-weight:700;box-shadow:0 10px 30px rgba(0,255,174,.25)}
+    .btn:hover{transform:translateY(-1px)}
+    .hero{position:relative;isolation:isolate}
+    .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 10% 10%, rgba(0,255,174,.08), transparent),radial-gradient(600px 300px at 90% 20%, rgba(0,255,174,.06), transparent);z-index:-1}
+    .hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;padding:72px 0 40px}
+    @media (max-width:900px){.hero-inner{grid-template-columns:1fr;padding:40px 0}}
+    h1{font-size:clamp(28px,4vw,46px);line-height:1.1;margin:8px 0 12px}
+    .lede{color:#cfcfcf;max-width:58ch;font-size:clamp(15px,2vw,18px)}
+    .badge{display:inline-flex;gap:10px;align-items:center;background:#0f0f0f;border:1px solid #1f1f1f;color:#bfbfbf;padding:8px 12px;border-radius:999px}
+    .kpi{display:flex;gap:18px;margin-top:18px;color:#cfcfcf}
+    .kpi div{background:var(--card);border:1px solid #1f1f1f;border-radius:12px;padding:14px 16px}
+    .panel{background:linear-gradient(180deg,#0f0f0f, #0b0b0c);border:1px solid #1f1f1f;border-radius:14px;padding:20px}
+    .grid{display:grid;gap:20px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    @media (max-width:900px){.grid-3{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid #1f1f1f;border-radius:14px;padding:22px}
+    .card h3{margin:0 0 8px;color:var(--accent)}
+    .card p{color:#cfcfcf}
+    section{padding:54px 0}
+    .section-title{font-size:28px;margin:0 0 10px}
+    .muted{color:var(--muted)}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .chip{padding:6px 10px;border-radius:999px;background:#0f0f0f;border:1px solid #1f1f1f;color:#cfcfcf}
+    .footer{border-top:1px solid #1f1f1f;color:#a5a5a5}
+    .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+    .process ol{margin:0;padding-left:20px}
+    .process li{margin:8px 0;color:#cfcfcf}
+    .contact-card input,.contact-card textarea{width:100%;background:#101010;border:1px solid #1f1f1f;color:#eaeaea;padding:12px 14px;border-radius:10px}
+    .contact-card input:focus,.contact-card textarea:focus{outline:none;box-shadow:var(--ring)}
   </style>
 </head>
 <body>
   <header>
-    <h1>Vivek Cyber Defense LLC</h1>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- inline viper glyph -->
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M46 22c0-7-6-12-14-12S18 15 18 22c0 9 7 11 7 16 0 3-2 5-5 7 3 1 6 1 9-1 3 2 6 2 9 1-3-2-5-4-5-7 0-5 7-7 7-16Z" fill="var(--accent)"/><circle cx="26" cy="22" r="2" fill="#0b0b0c"/><circle cx="38" cy="22" r="2" fill="#0b0b0c"/></svg>
+        </div>
+        <strong>Vivek Cyber Defense LLC</strong>
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="btn">Request a Quote</a>
+      </nav>
+    </div>
   </header>
 
   <section class="hero">
-    <h2>Protecting Digital Frontiers with Precision</h2>
-    <p>Vivek Cyber Defense LLC provides expert cybersecurity consulting, vulnerability assessment, and security testing services to safeguard businesses from evolving threats.</p>
-    <a href="#contact">Get in Touch</a>
+    <div class="container hero-inner">
+      <div>
+        <div class="badge">⚡ Trusted independent cybersecurity partner</div>
+        <h1>Protecting Digital Frontiers with Precision</h1>
+        <p class="lede">We deliver offensive security testing, vulnerability assessment, and incident-response readiness so you can ship with confidence and sleep at night.</p>
+        <div class="cta">
+          <a class="btn" href="#contact">Get in touch</a>
+          <a href="#services">See services →</a>
+        </div>
+        <div class="kpi">
+          <div><strong>Web • API • Cloud</strong><br/><span class="muted">End-to-end assessments</span></div>
+          <div><strong>OWASP & NIST</strong><br/><span class="muted">Industry-aligned methods</span></div>
+          <div><strong>Reports you can act on</strong><br/><span class="muted">Clear fixes & priorities</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3 style="margin:0 0 10px;color:var(--accent)">Rapid Security Snapshot</h3>
+        <p class="muted">A 5–10 day engagement designed for startups and SMBs that need fast, credible security insights.</p>
+        <ul class="muted">
+          <li>Scope: one app or API + external perimeter</li>
+          <li>Findings: prioritized with CVSS & repro steps</li>
+          <li>Deliverables: PDF report + remediation call</li>
+        </ul>
+        <div class="cta"><a class="btn" href="#contact">Book a snapshot</a></div>
+      </div>
+    </div>
   </section>
 
-  <section id="services" class="services">
-    <div class="service">
-      <h3>Vulnerability Assessment</h3>
-      <p>Identify, analyze, and mitigate system weaknesses before attackers exploit them.</p>
-    </div>
-    <div class="service">
-      <h3>Penetration Testing</h3>
-      <p>Comprehensive testing that simulates real-world attacks to reveal exploitable vulnerabilities.</p>
-    </div>
-    <div class="service">
-      <h3>Security Consulting</h3>
-      <p>Strategic guidance for businesses to improve infrastructure security, compliance, and resilience.</p>
-    </div>
-    <div class="service">
-      <h3>Incident Response</h3>
-      <p>Quick and effective mitigation support for cybersecurity breaches and digital forensics.</p>
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      <p class="muted">Engagements tailored to your stack and risk profile.</p>
+      <div class="grid grid-3" style="margin-top:18px">
+        <div class="card">
+          <h3>Vulnerability Assessment</h3>
+          <p>Baselining security posture across web, API, and cloud assets with actionable roadmap and quick wins.</p>
+          <div class="chips">
+            <span class="chip">OWASP ASVS</span>
+            <span class="chip">CIS Benchmarks</span>
+            <span class="chip">Cloud posture</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Penetration Testing</h3>
+          <p>Manual exploitation to validate real risk. Detailed proof-of-concept and business impact mapping.</p>
+          <div class="chips">
+            <span class="chip">Web & API</span>
+            <span class="chip">Auth & access</span>
+            <span class="chip">Injection & IDOR</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Security Consulting</h3>
+          <p>Roadmaps, threat modeling, SDLC integration, and remediation pairing for engineering teams.</p>
+          <div class="chips">
+            <span class="chip">Threat modeling</span>
+            <span class="chip">DevSecOps</span>
+            <span class="chip">Policy & controls</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Incident Response Readiness</h3>
+          <p>Runbooks, tabletop exercises, and log readiness so you can respond decisively under pressure.</p>
+          <div class="chips">
+            <span class="chip">IR playbooks</span>
+            <span class="chip">Tabletops</span>
+            <span class="chip">Forensics-lite</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Training & Workshops</h3>
+          <p>Hands-on sessions for developers and analysts: OWASP Top 10, secure APIs, and cloud misconfigurations.</p>
+          <div class="chips">
+            <span class="chip">OWASP Top 10</span>
+            <span class="chip">API Security</span>
+            <span class="chip">Cloud 101</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Research & Tools</h3>
+          <p>Open-source utilities and research notes released under Vivek Cyber Defense for community impact.</p>
+          <div class="chips">
+            <span class="chip">Burp extensions</span>
+            <span class="chip">Recon scripts</span>
+            <span class="chip">Write-ups</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p>Interested in securing your systems? Let’s talk!</p>
-    <p>Email: <a href="mailto:contact@vivekcyberdefense.com">contact@vivekcyberdefense.com</a></p>
+  <section id="process" class="process">
+    <div class="container">
+      <h2 class="section-title">How We Work</h2>
+      <p class="muted">Transparent, collaborative, and outcome-focused.</p>
+      <div class="grid grid-3" style="margin-top:18px">
+        <div class="card"><h3>1 · Scope</h3><p>Define goals, assets, and success criteria. We agree on rules of engagement and timeline.</p></div>
+        <div class="card"><h3>2 · Test</h3><p>Manual testing + selective automation aligned to OWASP/NIST. Continuous comms as we validate findings.</p></div>
+        <div class="card"><h3>3 · Deliver</h3><p>Proof-of-concept, severity, affected assets, and prioritized remediation with a live walkthrough.</p></div>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Vivek Cyber Defense LLC. All rights reserved.</p>
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects & Research</h2>
+      <p class="muted">Public artifacts to support due diligence and evidence for awards/citations.</p>
+      <div class="grid grid-3" style="margin-top:18px">
+        <div class="card">
+          <h3>API Sentinel</h3>
+          <p>Lightweight script to detect common API auth & IDOR issues. <em>Coming soon</em>.</p>
+          <a href="#" class="muted">GitHub (placeholder)</a>
+        </div>
+        <div class="card">
+          <h3>CloudGuard Notes</h3>
+          <p>Field notes on cloud misconfiguration patterns and quick remediation tactics.</p>
+          <a href="#" class="muted">Read notes (soon)</a>
+        </div>
+        <div class="card">
+          <h3>OWASP Lab Series</h3>
+          <p>Write-ups from PortSwigger/OWASP labs with reproducible steps for learning teams.</p>
+          <a href="#" class="muted">Blog (soon)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="muted">Ready to assess an app, API, or your external perimeter? Reach out and we’ll respond within 1 business day.</p>
+      <div class="grid" style="grid-template-columns:1.1fr .9fr">
+        <div class="contact-card card">
+          <form action="https://formspree.io/f/your-id" method="POST" onsubmit="alert('This demo form uses Formspree. Replace the action URL with your own or use mailto below.');">
+            <label>Name<br/><input name="name" placeholder="Full name" required /></label><br/><br/>
+            <label>Email<br/><input type="email" name="email" placeholder="you@company.com" required /></label><br/><br/>
+            <label>Message<br/><textarea name="message" rows="5" placeholder="Tell us about your scope and goals" required></textarea></label><br/><br/>
+            <button class="btn" type="submit">Send message</button>
+            <div style="margin-top:10px" class="muted">Prefer email? <a href="mailto:contact@vivekcyberdefense.com?subject=Quote%20request">contact@vivekcyberdefense.com</a></div>
+          </form>
+        </div>
+        <div class="card">
+          <h3>Company</h3>
+          <p><strong>Vivek Cyber Defense LLC</strong><br/>Baltimore, MD, USA</p>
+          <p class="muted">Available for: Web & API pentests, vulnerability assessments, incident response readiness, and training.</p>
+          <p class="muted">Certifications: CEH Master (in progress: OSCP/CISSP)</p>
+          <p class="muted">Standards: OWASP ASVS, NIST CSF, CIS Benchmarks</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;padding:22px 0;flex-wrap:wrap;gap:10px">
+      <div>© <span id="y"></span> Vivek Cyber Defense LLC</div>
+      <div class="muted">Built for speed & clarity — no tracking, no cookies.</div>
+    </div>
   </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
